@@ -5,7 +5,7 @@ import MaterialTable from 'material-table';
 function App() {
 
   let insert = (newPerson) => {
-    let url = "http://localhost:8000/api/poll";
+    let url = "http://localhost:8000/api/title";
     let params = {
       title: newPerson.title || ""
     };
@@ -33,7 +33,7 @@ function App() {
       });
   };
   const remove = (id) => {
-    let url = "http://localhost:8000/api/polls/"+id;
+    let url = "http://localhost:8000/api/titles/"+id;
     return fetch(url, {
       method: 'DELETE',
     })
@@ -52,7 +52,7 @@ function App() {
       });
   };
   const edit = (newData) => {
-    let url = "http://localhost:8000/api/polls/"+newData.id;
+    let url = "http://localhost:8000/api/titles/"+newData.id;
     let params = newData;
 
     return fetch(url, {
@@ -142,7 +142,7 @@ function App() {
       ]}
       data={query =>
         new Promise((resolve, reject) => {
-          let url = 'http://localhost:8000/api/polls';
+          let url = 'http://localhost:8000/api/titles';
           // create json object from filters array to send to web API
           let i;
           let filtersArray = [];
